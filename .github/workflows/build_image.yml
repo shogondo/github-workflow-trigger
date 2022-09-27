@@ -12,6 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
+      # - name: Get branch name
+      #   id: get-branch-name
+      #   uses: actions/github-script@v6
+      #   with:
+      #     script: |
+      #       return context.payload))
+      - name: Dump context
+        run: echo '${{ toJSON(github) }}'
       - name: Check out code
         id: checkout
         uses: actions/checkout@v3
