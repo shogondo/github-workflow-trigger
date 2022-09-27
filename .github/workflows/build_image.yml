@@ -26,4 +26,5 @@ jobs:
       - name: Print message
         run: |
           echo 'Building image...'
-          echo context.payload.workflow_run.head_branch
+          echo '${{ github.event.workflow_run.head_branch }}'
+          echo '${{ context.payload.workflow_run.head_branch }}'
