@@ -12,15 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - name: Print payload
-        uses: actions/github-script@v6
-        with:
-          script: |
-            core.info(JSON.stringify(context.payload))
       - name: Check out code
         id: checkout
         uses: actions/checkout@v3
       - name: Print message
         run: |
           echo 'Building image...'
-          env
+          echo context.payload.workflow_run.head_branch
