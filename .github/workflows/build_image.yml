@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - uses: nelonoel/branch-name@v1.0.1
       - name: Check out code
         id: checkout
         uses: actions/checkout@v3
+      - uses: nelonoel/branch-name@v1.0.1
       - name: Print message
         run: |
           echo 'Building image...'
