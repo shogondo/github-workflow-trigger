@@ -4,6 +4,8 @@ on: [push]
 
 jobs:
   my_job:
+    runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - name: My job
         run: |
