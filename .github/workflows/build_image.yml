@@ -1,0 +1,17 @@
+name: Build Image
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches:
+      - main
+      - production
+jobs:
+  build_image:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Print message
+        run: |
+          echo 'Building image...'

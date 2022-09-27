@@ -1,0 +1,10 @@
+name: CI
+
+on: [push]
+
+jobs:
+  my_job:
+    steps:
+      - name: My job
+        run: |
+          echo 'Running my job...'
