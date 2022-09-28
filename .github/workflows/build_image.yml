@@ -13,8 +13,10 @@ jobs:
     permissions: write-all
     steps:
       - name: Get branch name
-        run: |
-          echo "::set-output name=BRANCH_NAME::${{ github.event.workflow_run.head_branch }}"
+        uses: actions/github-script@v6
+        with:
+          script: |
+            core.exportVariable('BRANCH_NAME', '${{ github.event.workflow_run.head_branch }}');
       # - name: Get branch name
       #   id: get-branch-name
       #   uses: actions/github-script@v6
