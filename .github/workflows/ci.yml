@@ -10,3 +10,4 @@ jobs:
       - name: My job
         run: |
           echo 'Running my job...'
+          echo "GITHUB_SHA: ${GITHUB_SHA}"
