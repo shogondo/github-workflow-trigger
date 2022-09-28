@@ -12,6 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
+      - name: Get branch name
+        uses: actions/github-script@v6
+        with:
+          script: |
+            core.exportVariable('BRANCH_NAME', '${{ github.event.workflow_run.head_branch }}');
       # - name: Get branch name
       #   id: get-branch-name
       #   uses: actions/github-script@v6
@@ -28,6 +33,7 @@ jobs:
       - name: Print message
         run: |
           echo 'Building image...'
-          echo '${{ github.event.workflow_run.head_branch }}'
+          echo 'from context: ${{ github.event.workflow_run.head_branch }}'
+          echo "from envvar: ${BRANCH_NAME}"
           cat test.txt
       #    echo '${{ context.payload.workflow_run.head_branch }}'
